@@ -30,13 +30,9 @@ describe("Payments test (with setup and tear-down)", function() {
     it('should add table row element with sum of all bill payments, sum of all tip payments, and average tip percentage to summaryTable on updateSummary()', function(){
         createCurPayment();
         submitPaymentInfo();
-        sumPaymentTotal('billAmt');
-        sumPaymentTotal('tipAmt');
-        sumPaymentTotal('tipPercent');
-        updateSummary();
 
-        let summaryTdList = document.querySelectorAll('#summaryTable tbody tr td');
-        expect(summaryTdList[0].innerHTML).toEqual('$100');
+        let summaryTds = document.querySelectorAll('#summaryTable tbody tr td');
+        expect(summaryTds[0].innerHTML).toEqual('$' + '100');
         // expect(summaryTdList[1].innerText).toEqual('$20');
         // expect(summaryTdList[2].innerText).toEqual(20 + '%');
     });
