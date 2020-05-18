@@ -12,19 +12,19 @@ describe("Servers test (with setup and tear-down)", function() {
   });
 
   it('should add table row element with a new server and tipAverage to serverTbody on updateServerTable()', function(){
-    // updateServerTable();
-    //first 2 lines below are from Stephane D., Springboard TA
+    submitServerInfo();
+    updateServerTable();
+    //next 2 lines below are from Stephane D., Springboard TA
     let curTdList = document.querySelectorAll('#serverTable tbody tr td');
     expect(curTdList[0].innerText).toEqual('Alice');
-    // expect(curTdList[1].innerText).toEqual('$0.00');
+    expect(curTdList[1].innerText).toEqual('$0.00');
   })
-
-
 
   afterEach(function() {
     // teardown logic
     serverNameInput.value = '';
     allServers = {};
     serverId = 0;
+    serverTbody.innerHTML = '';
   });
 });
