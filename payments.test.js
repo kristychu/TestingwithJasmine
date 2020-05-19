@@ -32,9 +32,9 @@ describe("Payments test (with setup and tear-down)", function() {
         submitPaymentInfo();
 
         let summaryTds = document.querySelectorAll('#summaryTable tbody tr td');
-        expect(summaryTds[0].innerHTML).toEqual('$' + '100');
-        // expect(summaryTdList[1].innerText).toEqual('$20');
-        // expect(summaryTdList[2].innerText).toEqual(20 + '%');
+        expect(summaryTds[0].innerHTML).toEqual('$100');
+        expect(summaryTdList[1].innerText).toEqual('$20');
+        expect(summaryTdList[2].innerText).toEqual(20 + '%');
     });
     
   
@@ -42,11 +42,13 @@ describe("Payments test (with setup and tear-down)", function() {
       // teardown logic
       billAmtInput.value = '';
       tipAmtInput.value = '';
-      allPayments = {};
-      paymentId = 0;
       paymentTbody.innerHTML = '';
-      summaryTable.innerHTML = '';
-      tipPercentAvg = 0;
+      summaryTds[0].innerHTML = '';
+      summaryTds[1].innerHTML = '';
+      summaryTds[2].innerHTML = '';
+      serverTbody.innerHTML = '';
+      paymentId = 0;
+      allPayments = {};
     });
   });
   
